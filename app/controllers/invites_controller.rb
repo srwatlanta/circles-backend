@@ -9,10 +9,17 @@ class InvitesController < ApplicationController
         end 
     end
 
+    def update
+        @invite = Invite.find_by(id: params[:id])
+        @invite.update(invite_params)
+        @invite.save
+        render json: { user: ProfileSerializer.new(current_user) }, status: :created
+    end
+
     private
 
     def invite_params
-        params.require(:invite).permit(:user_id, :circle_id, :event_id)
+        params.require(:invite).permit(:user_id, :circle_id, :event_id, :status)
     end
 
 end

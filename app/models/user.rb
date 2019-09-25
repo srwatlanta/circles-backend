@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :invites
   has_many :events, through: :invites
   has_many :friends, through: :friendships
+  has_many :comments
 
   def find_friendships
     friendships = Friendship.all

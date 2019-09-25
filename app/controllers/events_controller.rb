@@ -6,6 +6,12 @@ class EventsController < ApplicationController
     render json: @events, each_serializer: EventSerializer
   end
 
+  def show
+    @event = Event.find_by(id: params[:id])
+    render json: { event: EventSerializer.new(@event)}, status: :accepted
+  end
+
+
   def create
     @event = Event.create(event_params)
     if @event.valid?
