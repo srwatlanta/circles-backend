@@ -7,7 +7,7 @@ class CirclesController < ApplicationController
   end
 
   def create
-    @circle = circle.create(circle_params)
+    @circle = Circle.create(circle_params)
     if @circle.valid?
       render json: { circle: CircleSerializer.new(@circle)}, status: :created
     else

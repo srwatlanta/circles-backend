@@ -1,15 +1,15 @@
 class CircleInvitesController < ApplicationController
     def create
         @circle_invite = CircleInvite.create(circle_invite_params)
-        @circle = Circle.find_by(id: circle_invite_params)
+        @circle = Circle.find_by(id: @circle_invite.circle_id)
         if @circle_invite.valid?
-            render json: { user: CircleSerializer.new(@circle) }, status: :created
+            render json: { circle: CircleSerializer.new(@circle) }, status: :created
         else
             render json: { error: 'failed to create circle_invite' }, status: :not_acceptable
         end 
     end
 
-    def delete
+    def destroy
         @circle_invite = CircleInvite.find_by(id: params[:id])
         @circle_invite.destroy
     end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :invites, only: [:create, :update]
   resources :circles, only: [:create, :delete, :update, :show]
   resources :events, only: [:index, :create, :update, :delete, :show]
-  resources :users, only: [:create, :update, :delete, :index]
+  resources :users, only: [:show, :create, :update, :delete, :index]
   get '/profile', to: 'users#profile'
   post '/login', to: 'auth#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
