@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
     def create
-        @friendship = Friendship.create(invite_params)
+        @friendship = Friendship.create(friendship_params)
         if @friendship.valid?
             render json: { user: ProfileSerializer.new(current_user) }, status: :created
         else
@@ -8,9 +8,10 @@ class FriendshipsController < ApplicationController
         end 
     end
 
-    def delete
+    def destroy
         @friendship = Friendship.find_by(id: params[:id])
         @friendship.destroy
+        render json: { user: ProfileSerializer.new(current_user) }, status: :created
     end
 
     private
