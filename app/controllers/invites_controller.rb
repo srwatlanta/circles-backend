@@ -16,6 +16,11 @@ class InvitesController < ApplicationController
         render json: { user: ProfileSerializer.new(current_user) }, status: :created
     end
 
+    def destroy
+        @circle_invite = CircleInvite.find_by(id: params[:id])
+        @circle_invite.destroy
+    end
+
     private
 
     def invite_params

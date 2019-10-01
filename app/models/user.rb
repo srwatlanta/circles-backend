@@ -2,8 +2,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :circle_invites
   has_many :circles, through: :circle_invites
-  has_many :friendships
-  has_many :invites
+  has_many :friendships, dependent: :destroy
+  has_many :invites, dependent: :destroy
   has_many :events, through: :invites
   has_many :friends, through: :friendships
   has_many :comments
