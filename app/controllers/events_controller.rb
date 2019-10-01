@@ -26,7 +26,10 @@ class EventsController < ApplicationController
     users = []
     circles.each do |circle|
       circle.users.each do |user|
-        Invite.create(user_id: user.id, circle_id: circle.id, event_id: event.id, status: "Invited")
+        unless users.include?(user.id)
+          users << user.id
+          Invite.create(user_id: user.id, circle_id: circle.id, event_id: event.id, status: "Invited")
+        end
       end
     end
     if event.valid?

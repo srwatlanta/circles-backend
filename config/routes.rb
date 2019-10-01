@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments, only: [:create, :destroy]
   resources :circle_invites, only: [:create, :destroy]
   resources :friendships, only: [:create, :destroy]
   resources :invites, only: [:create, :update, :destroy]
