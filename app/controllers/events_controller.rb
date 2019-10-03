@@ -18,10 +18,11 @@ class EventsController < ApplicationController
     if array.length > 1
       array.each do |circle|
         x = Circle.find_by(id: circle)
-        circles.push(x)
+        circles << x
       end
     else
-      circles = array
+      x = Circle.find_by(id: array)
+      circles << x
     end
     users = []
     circles.each do |circle|

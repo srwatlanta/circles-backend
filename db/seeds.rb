@@ -63,3 +63,12 @@
 # Circle.create(name: 'Study Buddies', img_url: 'https://blog.prepscholar.com/hs-fs/hub/360031/file-514060139-png/study-pic.png')
 # Circle.create(name: 'Lets Go Shopping', img_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6-4R3by-MwrLJy6R1c8cFXlWJREtokd8pHdQOXI34IXwDsthL')
 # Circle.create(name: 'Gym Crew', img_url: 'https://cdn-ami-drupal.heartyhosting.com/sites/muscleandfitness.com/files/styles/full_node_image_1090x614/public/media/dumbbell-press-bench-man-workout-1109.jpg?itok=ux3_zLyy')
+
+# CircleInvite.create(circle_id: 24, user_id: 1)
+# CircleInvite.create(circle_id: 21, user_id: 1)
+# CircleInvite.create(circle_id: 19, user_id: 1)
+# CircleInvite.create(circle_id: 25, user_id: 1)
+# CircleInvite.create(circle_id: 26, user_id: 2)
+# CircleInvite.create(circle_id: 20, user_id: 2)
+# CircleInvite.create(circle_id: 23, user_id: 21)
+# CircleInvite.create(circle_id: 22, user_id: 25)
