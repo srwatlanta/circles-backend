@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     
     def create
         @user = User.create(user_params)
+        @user.member_since = '2019'
         if @user.valid?
             @token = encode_token({user_id: @user.id})
             render json: { user: ProfileSerializer.new(@user), jwt: @token }, status: :created
